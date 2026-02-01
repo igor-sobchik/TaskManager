@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # The Database Service
+  mongo:
+    image: mongo:6.0
+    container_name: task-manager-mongo
+    restart: unless-stopped
+    ports:
+      # Expose mongo to host if you want to inspect it with a GUI (optional)
+      - "127.0.0.1:9101:27017"
+    volumes:
+      # PERSISTENCE: This saves the DB data to a local 'mongo_data' folder
+      - ./mongo_data:/data/db
+
+  # Your Backend Service
+  task-manager-api:
+    build: .
+    container_name: task-manager-backend
+    ports:
+      - "127.0.0.1:9100:8000"
+    environment:
+      - AUTH_PASSWORD=cx035rt78
+      - AUTH_TOKEN=3C69RkI286bYfHeo7GkjdIGidSVIdO
+      # Connection string to the mongo service defined above
+      - MONGO_URI=mongodb://mongo:27017
+      - DB_NAME=taskmanager
+    depends_on:
+      - mongo
+    restart: unless-stopped

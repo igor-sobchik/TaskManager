@@ -1,0 +1,89 @@
+# --- Python Basics ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual Environments ---
+# Common names for virtual envs
+.venv/
+venv/
+env/
+ENV/
+env_specific/
+env_specific_*/
+
+# --- Environment Variables & Secrets (CRITICAL) ---
+# Never commit your .env file containing API keys or DB passwords
+.env
+.env.local
+.env.*.local
+
+# --- Distribution / Builds ---
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- Testing & Coverage ---
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# --- IDE / Editor Settings ---
+# VS Code
+.vscode/
+# PyCharm / IntelliJ
+.idea/
+
+# --- Databases (Optional) ---
+# If you use SQLite for local dev, ignore the binary file
+*.sqlite3
+*.db
+*.db-journal
+
+# --- OS Generated Files ---
+.DS_Store
+Thumbs.db
+
+
+
+# NPM, Vite, Vue
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production Build
+dist/
+dist-ssr/
+
+# Local Environment Variables (Vite specific)
+# .env files are usually committed, but local overrides containing secrets are not
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs
+*.njsproj
+*.sln
+*.sw?
+
+# Testing (if you add Cypress or Jest later)
+cypress/videos
+cypress/screenshots
+coverage/
+tasks_data/
+mongo_data/

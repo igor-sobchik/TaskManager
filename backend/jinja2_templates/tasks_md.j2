@@ -1,0 +1,16 @@
+{% for date, tasks in grouped_tasks.items() %}
+## {{ date }}
+{% for task in tasks %}
+{% if task.dueTime %}- **{{ task.dueTime }}** - {{ task.title }}{% else %}- {{ task.title }}{% endif %}
+{% if task.customFields %}
+{% for field in task.customFields %}
+{% if field.type == 'link' and field.value %}
+- [{{ field.key }}]({{ field.value }})
+{% elif field.value %}
+- {{ field.key }}: {{ field.value }}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+{% endfor %}
